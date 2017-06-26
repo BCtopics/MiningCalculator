@@ -24,9 +24,13 @@ class HashCalculationViewController: UIViewController {
         guard let hashes = hashrateTextField.text else { NSLog("Hashes text field was nil"); return }
         CoinController.fetchCoin(for: hashes) { (coin) in
             guard let coin = coin else { NSLog("Coin was nil"); return }
-                let perDayRounded = coin.dollarsPerDay.roundTo(places: 2)
+            
+            // Round
+                let dollarsPerDayRounded = coin.dollarsPerDay.roundTo(places: 2)
+                let coinsPerDayRounded = coin.coinsPerDay.roundTo(places: 10)
             DispatchQueue.main.async {
-                self.usdAmount.text = "$\(perDayRounded)"
+                self.usdAmount.text = "$\(dollarsPerDayRounded)"
+                self.currencyAmount.text = "BTC: \(coinsPerDayRounded)"
             }
         }
     }

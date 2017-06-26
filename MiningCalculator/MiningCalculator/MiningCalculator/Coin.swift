@@ -12,25 +12,36 @@ class Coin {
     
     //MARK: - Keys
     let kDollarHour = "dollars_per_hour"
+    let kCoinHour = "coins_per_hour"
     
     
     //MARK: - Initializers
     
-    init(dollarsPerHour: Double) {
+    init(dollarsPerHour: Double, coinsPerHour: Double) {
         self.dollarsPerHour = dollarsPerHour
         self.dollarsPerDay = dollarsPerHour * 24
         self.dollarsPerWeek = dollarsPerDay * 7
         self.dollarsPerMonth = dollarsPerWeek * 4
+        
+        self.coinsPerHour = coinsPerHour
+        self.coinsPerDay = coinsPerHour * 24
+        self.coinsPerWeek = coinsPerDay * 7
+        self.coinsPerMonth = coinsPerWeek * 4
     }
     
     init?(dictionary: [String : Any]) {
-        guard let dollarsPerHour = dictionary[kDollarHour] as? Double else { NSLog("Failable Initializer has failed"); return nil;}
+        guard let dollarsPerHour = dictionary[kDollarHour] as? Double, let coinsPerHour = dictionary[kCoinHour] as? Double else { NSLog("Failable Initializer has failed"); return nil;}
         
         // Make this call other initializer later
         self.dollarsPerHour = dollarsPerHour
         self.dollarsPerDay = dollarsPerHour * 24
         self.dollarsPerWeek = dollarsPerDay * 7
         self.dollarsPerMonth = dollarsPerWeek * 4
+        
+        self.coinsPerHour = coinsPerHour
+        self.coinsPerDay = coinsPerHour * 24
+        self.coinsPerWeek = coinsPerDay * 7
+        self.coinsPerMonth = coinsPerWeek * 4
         
     }
     
@@ -39,4 +50,9 @@ class Coin {
     var dollarsPerDay: Double
     var dollarsPerWeek: Double
     var dollarsPerMonth: Double
+    
+    var coinsPerHour: Double
+    var coinsPerDay: Double
+    var coinsPerWeek: Double
+    var coinsPerMonth: Double
 }
