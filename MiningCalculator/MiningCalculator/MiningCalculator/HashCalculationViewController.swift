@@ -9,14 +9,14 @@
 import UIKit
 
 class HashCalculationViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     //MARK: - Calculations
     
-    func performCalculation() {
+    func performCalculation(timeFrame: String) {
         
         // Check which dropdown box was selected... MH/HG/TH
         // Perform conversion to Hashes
@@ -25,12 +25,61 @@ class HashCalculationViewController: UIViewController {
         CoinController.fetchCoin(for: hashes) { (coin) in
             guard let coin = coin else { NSLog("Coin was nil"); return }
             
-            // Round
+            // Hour timeFrame
+            if timeFrame == "hour" {
+                
+                // Round
+                let dollarsPerHourRounded = coin.dollarsPerHour.roundTo(places: 4) // Changed this to 4, good choice?
+                let coinsPerHourRounded = coin.coinsPerHour.roundTo(places: 10)
+                
+                DispatchQueue.main.async {
+                    self.usdAmount.text = "$\(dollarsPerHourRounded)"
+                    self.currencyAmount.text = "BTC: \(coinsPerHourRounded)"
+                }
+                NSLog("Hour Calculated")
+            }
+            
+            // Day timeFrame
+            if timeFrame == "day" {
+                
+                // Round
                 let dollarsPerDayRounded = coin.dollarsPerDay.roundTo(places: 2)
                 let coinsPerDayRounded = coin.coinsPerDay.roundTo(places: 10)
-            DispatchQueue.main.async {
-                self.usdAmount.text = "$\(dollarsPerDayRounded)"
-                self.currencyAmount.text = "BTC: \(coinsPerDayRounded)"
+                
+                DispatchQueue.main.async {
+                    self.usdAmount.text = "$\(dollarsPerDayRounded)"
+                    self.currencyAmount.text = "BTC: \(coinsPerDayRounded)"
+                }
+                NSLog("Day Calculated")
+            }
+            
+            // Week timeFrame
+            if timeFrame == "week" {
+                
+                // Round
+                let dollarsPerWeekRounded = coin.dollarsPerWeek.roundTo(places: 2)
+                let coinsPerWeekRounded = coin.coinsPerWeek.roundTo(places: 10)
+                
+                DispatchQueue.main.async {
+                    self.usdAmount.text = "$\(dollarsPerWeekRounded)"
+                    self.currencyAmount.text = "BTC: \(coinsPerWeekRounded)"
+                }
+                NSLog("week Calculated")
+            }
+            
+            // Month timeFrame
+            
+            if timeFrame == "month" {
+                
+                // Round
+                let dollarsPerMonthRounded = coin.dollarsPerMonth.roundTo(places: 2)
+                let coinsPerMonthRounded = coin.coinsPerMonth.roundTo(places: 10)
+                
+                DispatchQueue.main.async {
+                    self.usdAmount.text = "$\(dollarsPerMonthRounded)"
+                    self.currencyAmount.text = "BTC: \(coinsPerMonthRounded)"
+                }
+                NSLog("month Calculated")
             }
         }
     }
@@ -44,11 +93,34 @@ class HashCalculationViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func calculateButtonTapped(_ sender: Any) {
-        self.performCalculation()
+        self.performCalculation(timeFrame: time)
     }
 
+    @IBAction func dayButtonTapped(_ sender: Any) {
+        self.time = "day"
+        self.performCalculation(timeFrame: time)
+    }
+    
+    @IBAction func hourButtonTapped(_ sender: Any) {
+        self.time = "hour"
+        self.performCalculation(timeFrame: time)
+    }
+    
+    @IBAction func weekButtonTapped(_ sender: Any) {
+        self.time = "week"
+        self.performCalculation(timeFrame: time)
+    }
+    
+    @IBAction func monthButtonTapped(_ sender: Any) {
+        self.time = "month"
+        self.performCalculation(timeFrame: time)
+    }
+    
+    //MARK: - Properties 
+    
+    var time: String = "day"
+    
 }
-
 
 //MARK: - Rounding
 
