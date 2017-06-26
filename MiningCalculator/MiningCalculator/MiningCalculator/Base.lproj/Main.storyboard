@@ -6,6 +6,71 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Hash Calculation View Controller-->
+        <scene sceneID="V7o-8n-TR4">
+            <objects>
+                <viewController id="YRK-xy-tNK" customClass="HashCalculationViewController" customModule="MiningCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7pF-UB-247"/>
+                        <viewControllerLayoutGuide type="bottom" id="BSa-6w-VHS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GiA-jk-sXO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-Af-Xmm">
+                                <rect key="frame" x="16" y="70" width="343" height="77"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$4,321" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZP-bL-gsq">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC: 6.24597" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-uM-AEr">
+                                        <rect key="frame" x="0.0" y="43.5" width="343" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hashrate..." borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDG-nq-hcJ">
+                                <rect key="frame" x="16" y="239" width="313" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-6S-2vL">
+                                <rect key="frame" x="329" y="239" width="30" height="30"/>
+                                <state key="normal" title="MH"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-wf-G91">
+                                <rect key="frame" x="155" y="598" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Calculate"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VDG-nq-hcJ" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" id="Cqz-9r-LOa"/>
+                            <constraint firstItem="8Ye-6S-2vL" firstAttribute="trailing" secondItem="GiA-jk-sXO" secondAttribute="trailingMargin" id="NkB-HQ-TSj"/>
+                            <constraint firstItem="8Ye-6S-2vL" firstAttribute="top" secondItem="FFg-Af-Xmm" secondAttribute="bottom" constant="92" id="RXC-FV-1aK"/>
+                            <constraint firstItem="FFg-Af-Xmm" firstAttribute="top" secondItem="7pF-UB-247" secondAttribute="bottom" constant="50" id="hvy-R3-wp2"/>
+                            <constraint firstItem="VDG-nq-hcJ" firstAttribute="top" secondItem="FFg-Af-Xmm" secondAttribute="bottom" constant="92" id="tgP-n3-JEi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FFg-Af-Xmm" secondAttribute="trailing" id="uRh-8z-ZAm"/>
+                            <constraint firstItem="FFg-Af-Xmm" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" id="z6x-Kp-7Km"/>
+                            <constraint firstItem="8Ye-6S-2vL" firstAttribute="leading" secondItem="VDG-nq-hcJ" secondAttribute="trailing" id="zyk-4r-fFx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="btG-ET-7V7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="480.80000000000001" y="-208.24587706146929"/>
+        </scene>
+    </scenes>
 </document>
