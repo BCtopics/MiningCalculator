@@ -21,12 +21,13 @@ class CoinController {
     
     static let baseURL = URL(string: "https://alloscomp.com/bitcoin/calculator/json")
     
-    static func fetchPokemon(for hashrate: String, completion: @escaping (Coin?) -> Void) {
+    static func fetchCoin(for hashrate: String, completion: @escaping (Coin?) -> Void) {
         
-        let searchURL = baseURL?.appendingPathComponent(hashrate)
-        guard let url = searchURL else { completion(nil); return }
+        guard let url = baseURL else { completion(nil); return }
         
-        NetworkController.performRequest(for: url, httpMethod: .get, urlParameters: nil, body: nil) { (data, error) in
+        let urlParamaters = ["hashrate": "\(hashrate)"]
+        
+        NetworkController.performRequest(for: url, httpMethod: .get, urlParameters: urlParamaters, body: nil) { (data, error) in
             
             if let error = error {
                 NSLog("Error performing fetchRequest to API. \(error.localizedDescription)")

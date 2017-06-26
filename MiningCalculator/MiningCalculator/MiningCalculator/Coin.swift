@@ -16,7 +16,7 @@ class Coin {
     
     //MARK: - Initializers
     
-    init(dollarsPerHour: UInt64) {
+    init(dollarsPerHour: Double) {
         self.dollarsPerHour = dollarsPerHour
         self.dollarsPerDay = dollarsPerHour * 24
         self.dollarsPerWeek = dollarsPerDay * 7
@@ -24,7 +24,7 @@ class Coin {
     }
     
     init?(dictionary: [String : Any]) {
-        guard let dollarsPerHour = dictionary[kDollarHour] as? UInt64 else { NSLog("Failable Initializer has failed"); return nil;}
+        guard let dollarsPerHour = dictionary[kDollarHour] as? Double else { NSLog("Failable Initializer has failed"); return nil;}
         
         // Make this call other initializer later
         self.dollarsPerHour = dollarsPerHour
@@ -35,8 +35,8 @@ class Coin {
     }
     
     //MARK: - Properties
-    var dollarsPerHour: UInt64
-    var dollarsPerDay: UInt64
-    var dollarsPerWeek: UInt64
-    var dollarsPerMonth: UInt64
+    var dollarsPerHour: Double
+    var dollarsPerDay: Double
+    var dollarsPerWeek: Double
+    var dollarsPerMonth: Double
 }
