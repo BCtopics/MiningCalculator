@@ -11,6 +11,7 @@
 		6B3AE6F61F0188BC0055644E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3AE6F41F0188BC0055644E /* Main.storyboard */; };
 		6B3AE6F81F0188BC0055644E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3AE6F71F0188BC0055644E /* Assets.xcassets */; };
 		6B3AE6FB1F0188BC0055644E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3AE6F91F0188BC0055644E /* LaunchScreen.storyboard */; };
+		6B582C8D1F0199B800AD53DD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B582C8C1F0199B800AD53DD /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		6B3AE6F71F0188BC0055644E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B3AE6FA1F0188BC0055644E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B3AE6FC1F0188BC0055644E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B582C8C1F0199B800AD53DD /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				6B3AE6F01F0188BC0055644E /* AppDelegate.swift */,
+				6B582C8B1F01999F00AD53DD /* Networking */,
 				6B3AE7021F0188C70055644E /* Resources */,
 			);
 			path = MiningCalculator;
@@ -75,6 +78,14 @@
 				6B3AE6F41F0188BC0055644E /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		6B582C8B1F01999F00AD53DD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6B582C8C1F0199B800AD53DD /* NetworkController.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B582C8D1F0199B800AD53DD /* NetworkController.swift in Sources */,
 				6B3AE6F11F0188BC0055644E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +326,7 @@
 				6B3AE7011F0188BC0055644E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
