@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YRK-xy-tNK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VKd-pN-Dh4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hash Calculation View Controller-->
+        <!--CryptoCalculator-->
         <scene sceneID="V7o-8n-TR4">
             <objects>
                 <viewController id="YRK-xy-tNK" customClass="HashCalculationViewController" customModule="MiningCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,47 +25,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-Af-Xmm">
-                                <rect key="frame" x="16" y="70" width="343" height="77"/>
+                                <rect key="frame" x="16" y="114" width="343" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$4,321" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZP-bL-gsq">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC: 6.24597" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-uM-AEr">
-                                        <rect key="frame" x="0.0" y="43.5" width="343" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="64" width="343" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hashrate..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDG-nq-hcJ">
-                                <rect key="frame" x="16" y="239" width="313" height="30"/>
+                                <rect key="frame" x="16" y="306" width="313" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="YRK-xy-tNK" id="ScF-ov-FlX"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-6S-2vL">
-                                <rect key="frame" x="329" y="239" width="30" height="30"/>
+                                <rect key="frame" x="329" y="306" width="30" height="30"/>
                                 <state key="normal" title="MH"/>
                                 <connections>
                                     <action selector="MHButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="7Dg-Vs-XDG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-wf-G91">
-                                <rect key="frame" x="155" y="598" width="64" height="30"/>
-                                <state key="normal" title="Calculate"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-wf-G91">
+                                <rect key="frame" x="120" y="344" width="135" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GNy-wf-G91" secondAttribute="height" multiplier="1:1" id="6WF-m2-ktc"/>
+                                </constraints>
+                                <state key="normal" title="Calculate" image="bitcoin"/>
                                 <connections>
                                     <action selector="calculateButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="Je5-VV-0a0"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bbs-uL-zZP">
-                                <rect key="frame" x="16" y="166" width="343" height="44.5"/>
+                                <rect key="frame" x="16" y="222" width="343" height="44.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-s3-7qt">
                                         <rect key="frame" x="0.0" y="0.0" width="86" height="44.5"/>
@@ -100,14 +104,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bbs-uL-zZP" secondAttribute="trailing" id="5x3-Vy-sGi"/>
-                            <constraint firstItem="GNy-wf-G91" firstAttribute="centerX" secondItem="GiA-jk-sXO" secondAttribute="centerX" id="Cft-nP-rII"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GNy-wf-G91" secondAttribute="trailing" constant="104" id="A7h-jY-PbL"/>
                             <constraint firstItem="VDG-nq-hcJ" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" id="Cqz-9r-LOa"/>
-                            <constraint firstItem="BSa-6w-VHS" firstAttribute="top" secondItem="GNy-wf-G91" secondAttribute="bottom" constant="39" id="CyP-LV-Vna"/>
                             <constraint firstItem="bbs-uL-zZP" firstAttribute="height" secondItem="GiA-jk-sXO" secondAttribute="height" multiplier="1/15" id="Fya-3Y-tm3"/>
                             <constraint firstItem="8Ye-6S-2vL" firstAttribute="trailing" secondItem="GiA-jk-sXO" secondAttribute="trailingMargin" id="NkB-HQ-TSj"/>
-                            <constraint firstItem="bbs-uL-zZP" firstAttribute="top" secondItem="bgu-uM-AEr" secondAttribute="bottom" constant="19" id="OOS-zZ-2sn"/>
+                            <constraint firstItem="bbs-uL-zZP" firstAttribute="top" secondItem="bgu-uM-AEr" secondAttribute="bottom" constant="8" id="OOS-zZ-2sn"/>
                             <constraint firstItem="8Ye-6S-2vL" firstAttribute="top" secondItem="FFg-Af-Xmm" secondAttribute="bottom" constant="92" id="RXC-FV-1aK"/>
+                            <constraint firstItem="GNy-wf-G91" firstAttribute="top" secondItem="VDG-nq-hcJ" secondAttribute="bottom" constant="8" id="UbN-Sk-c73"/>
                             <constraint firstItem="bbs-uL-zZP" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" id="WZL-kc-qIC"/>
+                            <constraint firstItem="GNy-wf-G91" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" constant="104" id="haW-WQ-I9m"/>
                             <constraint firstItem="FFg-Af-Xmm" firstAttribute="top" secondItem="7pF-UB-247" secondAttribute="bottom" constant="50" id="hvy-R3-wp2"/>
                             <constraint firstItem="VDG-nq-hcJ" firstAttribute="top" secondItem="FFg-Af-Xmm" secondAttribute="bottom" constant="92" id="tgP-n3-JEi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FFg-Af-Xmm" secondAttribute="trailing" id="uRh-8z-ZAm"/>
@@ -115,16 +120,41 @@
                             <constraint firstItem="8Ye-6S-2vL" firstAttribute="leading" secondItem="VDG-nq-hcJ" secondAttribute="trailing" id="zyk-4r-fFx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="CryptoCalculator" id="KSS-5S-d1b">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="qqX-sC-LLu"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="currencyAmount" destination="bgu-uM-AEr" id="pG0-72-8YY"/>
                         <outlet property="hashrateTextField" destination="VDG-nq-hcJ" id="1mK-BT-szZ"/>
+                        <outlet property="mainView" destination="GiA-jk-sXO" id="qAa-yu-BLw"/>
                         <outlet property="mhButton" destination="8Ye-6S-2vL" id="kQ9-Wz-EmE"/>
                         <outlet property="usdAmount" destination="SZP-bL-gsq" id="PDK-yK-jZH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btG-ET-7V7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480.80000000000001" y="-208.24587706146929"/>
+            <point key="canvasLocation" x="1420" y="-208.24587706146929"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GMZ-mQ-JAH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VKd-pN-Dh4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V9H-Zh-Hgx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YRK-xy-tNK" kind="relationship" relationship="rootViewController" id="TAP-f3-NCb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZ0-SB-Xir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="-208"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bitcoin" width="225" height="225"/>
+    </resources>
 </document>

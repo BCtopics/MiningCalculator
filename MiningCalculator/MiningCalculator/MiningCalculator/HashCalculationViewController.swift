@@ -12,6 +12,14 @@ class HashCalculationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setColors()
+    }
+    
+    func setColors() {
+        self.mainView.backgroundColor = UIColor(colorLiteralRed: 10 / 256.0, green: 105 / 256.0, blue: 112 / 256.0, alpha: 1)
+        self.mainView.tintColor = UIColor(colorLiteralRed: 239 / 256.0, green: 173 / 256.0, blue: 78 / 265.0, alpha: 1)
+        self.currencyAmount.textColor = .white
+        self.usdAmount.textColor = .white
     }
     
     //MARK: - UITextFieldDelegate Functions
@@ -112,6 +120,7 @@ class HashCalculationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usdAmount: UILabel!
     @IBOutlet weak var currencyAmount: UILabel!
     @IBOutlet weak var mhButton: UIButton!
+    @IBOutlet var mainView: UIView!
     
     //MARK: - IBActions
     
