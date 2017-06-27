@@ -8,10 +8,22 @@
 
 import UIKit
 
-class HashCalculationViewController: UIViewController {
+class HashCalculationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    //MARK: - UITextFieldDelegate Functions
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+        performCalculation(timeFrame: self.time)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     //MARK: - Calculations
