@@ -111,6 +111,7 @@ class HashCalculationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var hashrateTextField: UITextField!
     @IBOutlet weak var usdAmount: UILabel!
     @IBOutlet weak var currencyAmount: UILabel!
+    @IBOutlet weak var mhButton: UIButton!
     
     //MARK: - IBActions
     
@@ -144,15 +145,20 @@ class HashCalculationViewController: UIViewController, UITextFieldDelegate {
         
         let hashesAction = UIAlertAction(title: "Hashes", style: .default) { (_) in
             self.hashType = "hashes"
+            self.mhButton.titleLabel?.text = "H"
         }
         let megahashesAction = UIAlertAction(title: "MH", style: .default) { (_) in
             self.hashType = "megahashes"
+            self.mhButton.titleLabel?.text = "MH"
         }
         let gigahashesAction = UIAlertAction(title: "GH", style: .default) { (_) in
             self.hashType = "gigahash"
+            self.mhButton.titleLabel?.text = "GH"
+            
         }
         let terahashesAction = UIAlertAction(title: "TH", style: .default) { (_) in
             self.hashType = "terahash"
+            self.mhButton.titleLabel?.text = "TH"
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         

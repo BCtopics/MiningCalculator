@@ -118,6 +118,7 @@
                     <connections>
                         <outlet property="currencyAmount" destination="bgu-uM-AEr" id="pG0-72-8YY"/>
                         <outlet property="hashrateTextField" destination="VDG-nq-hcJ" id="1mK-BT-szZ"/>
+                        <outlet property="mhButton" destination="8Ye-6S-2vL" id="kQ9-Wz-EmE"/>
                         <outlet property="usdAmount" destination="SZP-bL-gsq" id="PDK-yK-jZH"/>
                     </connections>
                 </viewController>
