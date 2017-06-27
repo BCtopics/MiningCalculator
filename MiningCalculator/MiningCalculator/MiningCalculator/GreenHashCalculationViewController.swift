@@ -39,12 +39,20 @@ class GreenHashCalculationViewController: UIViewController {
         self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         self.hashrateSearchField.textAlignment = .center
         self.hashrateSearchField.setContentHuggingPriority(249, for: UILayoutConstraintAxis.horizontal)
+        self.hashrateSearchField.keyboardType = .decimalPad
+        self.hashrateSearchField.textColor = ColorController.textOrange
+        self.hashrateSearchField.becomeFirstResponder()
         
         self.mhButton.setTitle("MH's", for: .normal)
         self.mhButton.setTitleColor(ColorController.textOrange, for: .normal)
         
         self.hashView.addSubview(hashrateSearchField)
         self.hashView.addSubview(mhButton)
+        
+        // btcIcon Button Setup
+        
+        self.btcIcon.setImage(#imageLiteral(resourceName: "bitcoin"), for: .normal)
+        self.hashView.addSubview(btcIcon)
         
         HashViewConstraints()
     }
@@ -68,6 +76,16 @@ class GreenHashCalculationViewController: UIViewController {
         let mhButtonHeight = NSLayoutConstraint(item: mhButton, attribute: .height, relatedBy: .equal, toItem: hashrateSearchField, attribute: .height, multiplier: 1.0, constant: 0)
         
         self.hashView.addConstraints([mhButtonLeading, mhButtonTrailing, mhButtonTop, mhButtonHeight])
+        
+        // btcIcon Button Constraints
+        btcIcon.translatesAutoresizingMaskIntoConstraints = false
+        
+        let btcIconAspectRatio = NSLayoutConstraint(item: btcIcon, attribute: .height, relatedBy: .equal, toItem: btcIcon, attribute: .width, multiplier: 1.0, constant: 0)
+        let btcIconLeading = NSLayoutConstraint(item: btcIcon, attribute: .leading, relatedBy: .equal, toItem: hashView, attribute: .leading, multiplier: 1.0, constant: 120)
+        let btcIconTrailing = NSLayoutConstraint(item: btcIcon, attribute: .trailing, relatedBy: .equal, toItem: hashView, attribute: .trailing, multiplier: 1.0, constant: -120)
+        let btcIconBottom = NSLayoutConstraint(item: btcIcon, attribute: .bottom, relatedBy: .equal, toItem: hashView, attribute: .bottom, multiplier: 1.0, constant: -65) // Change This
+        
+        self.hashView.addConstraints([btcIconLeading, btcIconTrailing, btcIconAspectRatio, btcIconBottom])
         
     }
     
@@ -189,7 +207,7 @@ class GreenHashCalculationViewController: UIViewController {
         let hashViewTop = NSLayoutConstraint(item: hashView, attribute: .top, relatedBy: .equal, toItem: moneyView, attribute: .bottom, multiplier: 1.0, constant: 0)
         let hashViewLeading = NSLayoutConstraint(item: hashView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0)
         let hashViewTrailing = NSLayoutConstraint(item: hashView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 0)
-        let hashViewHeight = NSLayoutConstraint(item: hashView, attribute: .height, relatedBy: .equal, toItem: moneyView, attribute: .height, multiplier: 1.3, constant: 0)
+        let hashViewHeight = NSLayoutConstraint(item: hashView, attribute: .height, relatedBy: .equal, toItem: moneyView, attribute: .height, multiplier: 1.7, constant: 0) // Was 1.3
         
         self.view.addConstraints([hashViewTop, hashViewLeading, hashViewTrailing, hashViewHeight])
         
