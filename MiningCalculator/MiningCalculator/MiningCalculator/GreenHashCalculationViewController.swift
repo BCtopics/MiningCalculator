@@ -14,34 +14,77 @@ class GreenHashCalculationViewController: UIViewController {
         super.viewDidLoad()
         self.setup()
         self.MoneyViewSetup()
+        self.HashViewSetup()
     }
     
+    // UIViews
     let moneyView = UIView()
     let hashView = UIView()
     
-    // Money Amounts
-    let usdLabel = UILabel()
-    let cryptoAmountLabel = UILabel()
     
+    //MARK: - Hash View
     
     // Search Bar
-    let hashrateSearchField = UISearchBar()
+    let hashrateSearchField = UITextField()
     let mhButton = UIButton()
     
     // Icon Button
     let btcIcon = UIButton()
     
-    // Hour, Day, Week, Month, Year stackview
-    
     func HashViewSetup() {
         
+        
+        // hashrateSearchField / MHButton Setup
+        
+        self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
+        self.hashrateSearchField.textAlignment = .center
+        self.hashrateSearchField.setContentHuggingPriority(249, for: UILayoutConstraintAxis.horizontal)
+        
+        self.mhButton.setTitle("MH's", for: .normal)
+        self.mhButton.setTitleColor(ColorController.textOrange, for: .normal)
+        
+        self.hashView.addSubview(hashrateSearchField)
+        self.hashView.addSubview(mhButton)
         
         HashViewConstraints()
     }
     
     func HashViewConstraints() {
         
+        // hashrateSearchField Constraints
+        hashrateSearchField.translatesAutoresizingMaskIntoConstraints = false
+        
+        let searchFieldTop = NSLayoutConstraint(item: hashrateSearchField, attribute: .top, relatedBy: .equal, toItem: hashView, attribute: .top, multiplier: 1.0, constant: 18)
+        let searchFieldLeading = NSLayoutConstraint(item: hashrateSearchField, attribute: .leading, relatedBy: .equal, toItem: hashView, attribute: .leading, multiplier: 1.0, constant: 16)
+        
+        self.hashView.addConstraints([searchFieldTop, searchFieldLeading])
+        
+        // MHButton Constraints
+        mhButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let mhButtonLeading = NSLayoutConstraint(item: mhButton, attribute: .leading, relatedBy: .equal, toItem: hashrateSearchField, attribute: .trailing, multiplier: 1.0, constant: 0)
+        let mhButtonTrailing = NSLayoutConstraint(item: mhButton, attribute: .trailing, relatedBy: .equal, toItem: hashView, attribute: .trailing, multiplier: 1.0, constant: -16)
+        let mhButtonTop = NSLayoutConstraint(item: mhButton, attribute: .top, relatedBy: .equal, toItem: hashView, attribute: .top, multiplier: 1.0, constant: 18)
+        let mhButtonHeight = NSLayoutConstraint(item: mhButton, attribute: .height, relatedBy: .equal, toItem: hashrateSearchField, attribute: .height, multiplier: 1.0, constant: 0)
+        
+        self.hashView.addConstraints([mhButtonLeading, mhButtonTrailing, mhButtonTop, mhButtonHeight])
+        
     }
+    
+    //MARK: - Money View
+    
+    // Money Amounts
+    let usdLabel = UILabel()
+    let cryptoAmountLabel = UILabel()
+    
+    // Hour, Day, Week, Month, Year stackview
+    
+    let timeStackView = UIStackView()
+    
+    let hourButton = UIButton()
+    let dayButton = UIButton()
+    let weekButton = UIButton()
+    let monthButton = UIButton()
     
     func MoneyViewSetup() {
         
@@ -60,8 +103,32 @@ class GreenHashCalculationViewController: UIViewController {
         self.cryptoAmountLabel.textAlignment = .center
         self.moneyView.addSubview(cryptoAmountLabel)
         
-        // Hour, Day, Week, Month, Year stackview Setup
+        // Hour, Day, Week, Month Stackview Setup
         
+        // StackView
+        self.moneyView.addSubview(timeStackView)
+        self.timeStackView.distribution = .fillEqually
+        self.timeStackView.alignment = .center
+        
+        // Hour
+        self.hourButton.setTitle("Hour", for: .normal)
+        self.hourButton.setTitleColor(ColorController.textOrange, for: .normal)
+        self.timeStackView.addArrangedSubview(hourButton)
+        
+        // Day
+        self.dayButton.setTitle("Day", for: .normal)
+        self.dayButton.setTitleColor(ColorController.textOrange, for: .normal)
+        self.timeStackView.addArrangedSubview(dayButton)
+        
+        // Week
+        self.weekButton.setTitle("Week", for: .normal)
+        self.weekButton.setTitleColor(ColorController.textOrange, for: .normal)
+        self.timeStackView.addArrangedSubview(weekButton)
+        
+        // Month
+        self.monthButton.setTitle("Month", for: .normal)
+        self.monthButton.setTitleColor(ColorController.textOrange, for: .normal)
+        self.timeStackView.addArrangedSubview(monthButton)
         
         MoneyViewConstraints()
     }
@@ -85,6 +152,15 @@ class GreenHashCalculationViewController: UIViewController {
         let cryptoAmountLabelLeading = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .leading, relatedBy: .equal, toItem: moneyView, attribute: .leading, multiplier: 1.0, constant: 30)
         
         self.moneyView.addConstraints([cryptoAmountLabelLeading, cryptoAmountLabelTrailing])
+        
+        // StackView
+        timeStackView.translatesAutoresizingMaskIntoConstraints = false
+    
+        let timeStackViewTop = NSLayoutConstraint(item: timeStackView, attribute: .top, relatedBy: .equal, toItem: cryptoAmountLabel, attribute: .bottom, multiplier: 1.0, constant: 10)
+        let timeStackViewTrailing = NSLayoutConstraint(item: timeStackView, attribute: .trailing, relatedBy: .equal, toItem: moneyView, attribute: .trailing, multiplier: 1.0, constant: -30)
+        let timeStackViewLeading = NSLayoutConstraint(item: timeStackView, attribute: .leading, relatedBy: .equal, toItem: moneyView, attribute: .leading, multiplier: 1.0, constant: 30)
+        
+        self.moneyView.addConstraints([timeStackViewTop, timeStackViewLeading, timeStackViewTrailing])
 
     }
     
@@ -121,8 +197,6 @@ class GreenHashCalculationViewController: UIViewController {
         // Search Bar Constraints
         
         // Icon Button Constraints
-        
-        // Hour, Day, Week, Month, Year stackview Contraints
         
     }
     
