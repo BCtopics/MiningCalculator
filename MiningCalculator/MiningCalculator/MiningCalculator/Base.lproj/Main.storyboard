@@ -7,8 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,100 +22,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-Af-Xmm">
-                                <rect key="frame" x="16" y="114" width="343" height="100"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="254" translatesAutoresizingMaskIntoConstraints="NO" id="Dj9-pP-qQq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="174"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$4,321" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZP-bL-gsq">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC: 6.24597" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-uM-AEr">
-                                        <rect key="frame" x="0.0" y="64" width="343" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bbs-uL-zZP">
+                                        <rect key="frame" x="30" y="125" width="315" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-s3-7qt">
+                                                <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
+                                                <state key="normal" title="Hour">
+                                                    <color key="titleColor" red="0.93725490196078431" green="0.67843137254901964" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="hourButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="KvJ-AQ-15S"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sn-fk-ISk">
+                                                <rect key="frame" x="79" y="0.0" width="78.5" height="30"/>
+                                                <state key="normal" title="Day">
+                                                    <color key="titleColor" red="0.93725490196078431" green="0.67843137254901964" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="dayButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="5mg-Yi-svD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH9-Bs-Emz">
+                                                <rect key="frame" x="157.5" y="0.0" width="79" height="30"/>
+                                                <state key="normal" title="Week">
+                                                    <color key="titleColor" red="0.93725490196078431" green="0.67843137254901964" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="weekButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="QLc-YG-wvS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJm-dd-3tI">
+                                                <rect key="frame" x="236.5" y="0.0" width="78.5" height="30"/>
+                                                <state key="normal" title="Month">
+                                                    <color key="titleColor" red="0.93725490196078431" green="0.67843137254901964" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="monthButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="w1I-JP-69w"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-Af-Xmm">
+                                        <rect key="frame" x="30" y="8" width="315" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$4,321" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZP-bL-gsq">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC: 6.24597" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-uM-AEr">
+                                                <rect key="frame" x="0.0" y="64" width="315" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hashrate..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDG-nq-hcJ">
-                                <rect key="frame" x="16" y="306" width="313" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="YRK-xy-tNK" id="ScF-ov-FlX"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-6S-2vL">
-                                <rect key="frame" x="329" y="306" width="30" height="30"/>
-                                <state key="normal" title="MH"/>
-                                <connections>
-                                    <action selector="MHButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="7Dg-Vs-XDG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-wf-G91">
-                                <rect key="frame" x="120" y="344" width="135" height="135"/>
+                                <color key="backgroundColor" red="0.039215686274509803" green="0.41176470588235292" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="GNy-wf-G91" secondAttribute="height" multiplier="1:1" id="6WF-m2-ktc"/>
+                                    <constraint firstAttribute="trailing" secondItem="bbs-uL-zZP" secondAttribute="trailing" constant="30" id="6ry-vz-kH3"/>
+                                    <constraint firstItem="bbs-uL-zZP" firstAttribute="leading" secondItem="Dj9-pP-qQq" secondAttribute="leading" constant="30" id="GXt-14-3lp"/>
+                                    <constraint firstAttribute="height" constant="174" id="HcL-QJ-dKR"/>
+                                    <constraint firstItem="FFg-Af-Xmm" firstAttribute="leading" secondItem="Dj9-pP-qQq" secondAttribute="leading" constant="30" id="LdQ-7D-Ccj"/>
+                                    <constraint firstItem="bbs-uL-zZP" firstAttribute="top" secondItem="FFg-Af-Xmm" secondAttribute="bottom" constant="17" id="Q25-NM-eCl"/>
+                                    <constraint firstAttribute="trailing" secondItem="FFg-Af-Xmm" secondAttribute="trailing" constant="30" id="aFM-JO-DlB"/>
+                                    <constraint firstItem="FFg-Af-Xmm" firstAttribute="top" secondItem="Dj9-pP-qQq" secondAttribute="top" constant="8" id="dTY-uc-Kp3"/>
                                 </constraints>
-                                <state key="normal" title="Calculate" image="bitcoin"/>
-                                <connections>
-                                    <action selector="calculateButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="Je5-VV-0a0"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bbs-uL-zZP">
-                                <rect key="frame" x="16" y="222" width="343" height="44.5"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sA-8e-AJU">
+                                <rect key="frame" x="0.0" y="237" width="375" height="232"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKi-s3-7qt">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="44.5"/>
-                                        <state key="normal" title="Hour"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hashrate..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDG-nq-hcJ">
+                                        <rect key="frame" x="16" y="18" width="313" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <action selector="hourButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="KvJ-AQ-15S"/>
+                                            <outlet property="delegate" destination="YRK-xy-tNK" id="ScF-ov-FlX"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-6S-2vL">
+                                        <rect key="frame" x="329" y="18" width="30" height="30"/>
+                                        <state key="normal" title="MH">
+                                            <color key="titleColor" red="0.93725490196078431" green="0.67843137254901964" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="MHButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="7Dg-Vs-XDG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sn-fk-ISk">
-                                        <rect key="frame" x="86" y="0.0" width="85.5" height="44.5"/>
-                                        <state key="normal" title="Day"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-wf-G91">
+                                        <rect key="frame" x="120" y="64" width="135" height="135"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="GNy-wf-G91" secondAttribute="height" multiplier="1:1" id="Z34-1O-kMc"/>
+                                        </constraints>
+                                        <state key="normal" image="bitcoin"/>
                                         <connections>
-                                            <action selector="dayButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="5mg-Yi-svD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH9-Bs-Emz">
-                                        <rect key="frame" x="171.5" y="0.0" width="86" height="44.5"/>
-                                        <state key="normal" title="Week"/>
-                                        <connections>
-                                            <action selector="weekButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="QLc-YG-wvS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJm-dd-3tI">
-                                        <rect key="frame" x="257.5" y="0.0" width="85.5" height="44.5"/>
-                                        <state key="normal" title="Month"/>
-                                        <connections>
-                                            <action selector="monthButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="w1I-JP-69w"/>
+                                            <action selector="calculateButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="Je5-VV-0a0"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.94117647058823528" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="8Ye-6S-2vL" firstAttribute="top" secondItem="7sA-8e-AJU" secondAttribute="top" constant="18" id="8kb-Rr-1Dk"/>
+                                    <constraint firstItem="GNy-wf-G91" firstAttribute="leading" secondItem="7sA-8e-AJU" secondAttribute="leading" constant="120" id="9dV-3I-kj5"/>
+                                    <constraint firstAttribute="bottom" secondItem="GNy-wf-G91" secondAttribute="bottom" constant="33" id="IVG-pN-xUM"/>
+                                    <constraint firstItem="8Ye-6S-2vL" firstAttribute="leading" secondItem="VDG-nq-hcJ" secondAttribute="trailing" id="IvM-Iu-9jO"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Ye-6S-2vL" secondAttribute="trailing" constant="16" id="RUN-Ff-sGt"/>
+                                    <constraint firstItem="VDG-nq-hcJ" firstAttribute="top" secondItem="7sA-8e-AJU" secondAttribute="top" constant="18" id="dOp-xb-vq3"/>
+                                    <constraint firstAttribute="trailing" secondItem="GNy-wf-G91" secondAttribute="trailing" constant="120" id="gBE-0J-Sw8"/>
+                                    <constraint firstItem="VDG-nq-hcJ" firstAttribute="leading" secondItem="7sA-8e-AJU" secondAttribute="leading" constant="16" id="lOx-mS-63h"/>
+                                    <constraint firstAttribute="height" constant="232" id="oDy-16-xxb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="bbs-uL-zZP" secondAttribute="trailing" id="5x3-Vy-sGi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GNy-wf-G91" secondAttribute="trailing" constant="104" id="A7h-jY-PbL"/>
-                            <constraint firstItem="VDG-nq-hcJ" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" id="Cqz-9r-LOa"/>
-                            <constraint firstItem="bbs-uL-zZP" firstAttribute="height" secondItem="GiA-jk-sXO" secondAttribute="height" multiplier="1/15" id="Fya-3Y-tm3"/>
-                            <constraint firstItem="8Ye-6S-2vL" firstAttribute="trailing" secondItem="GiA-jk-sXO" secondAttribute="trailingMargin" id="NkB-HQ-TSj"/>
-                            <constraint firstItem="bbs-uL-zZP" firstAttribute="top" secondItem="bgu-uM-AEr" secondAttribute="bottom" constant="8" id="OOS-zZ-2sn"/>
-                            <constraint firstItem="8Ye-6S-2vL" firstAttribute="top" secondItem="FFg-Af-Xmm" secondAttribute="bottom" constant="92" id="RXC-FV-1aK"/>
-                            <constraint firstItem="GNy-wf-G91" firstAttribute="top" secondItem="VDG-nq-hcJ" secondAttribute="bottom" constant="8" id="UbN-Sk-c73"/>
-                            <constraint firstItem="bbs-uL-zZP" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" id="WZL-kc-qIC"/>
-                            <constraint firstItem="GNy-wf-G91" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" constant="104" id="haW-WQ-I9m"/>
-                            <constraint firstItem="FFg-Af-Xmm" firstAttribute="top" secondItem="7pF-UB-247" secondAttribute="bottom" constant="50" id="hvy-R3-wp2"/>
-                            <constraint firstItem="VDG-nq-hcJ" firstAttribute="top" secondItem="FFg-Af-Xmm" secondAttribute="bottom" constant="92" id="tgP-n3-JEi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FFg-Af-Xmm" secondAttribute="trailing" id="uRh-8z-ZAm"/>
-                            <constraint firstItem="FFg-Af-Xmm" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leadingMargin" id="z6x-Kp-7Km"/>
-                            <constraint firstItem="8Ye-6S-2vL" firstAttribute="leading" secondItem="VDG-nq-hcJ" secondAttribute="trailing" id="zyk-4r-fFx"/>
+                            <constraint firstAttribute="trailing" secondItem="Dj9-pP-qQq" secondAttribute="trailing" id="7K8-Ad-NSE"/>
+                            <constraint firstItem="7sA-8e-AJU" firstAttribute="top" secondItem="Dj9-pP-qQq" secondAttribute="bottom" constant="-1" id="I8s-N1-ado"/>
+                            <constraint firstAttribute="trailing" secondItem="7sA-8e-AJU" secondAttribute="trailing" id="KXl-Vz-AKM"/>
+                            <constraint firstItem="7sA-8e-AJU" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leading" id="jfJ-7G-hJ3"/>
+                            <constraint firstItem="Dj9-pP-qQq" firstAttribute="top" secondItem="7pF-UB-247" secondAttribute="bottom" id="mh5-Uf-Wiw"/>
+                            <constraint firstItem="Dj9-pP-qQq" firstAttribute="leading" secondItem="GiA-jk-sXO" secondAttribute="leading" id="nTt-Rq-UZe"/>
+                            <constraint firstItem="BSa-6w-VHS" firstAttribute="top" secondItem="7sA-8e-AJU" secondAttribute="bottom" constant="198" id="wm4-94-oqW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CryptoCalculator" id="KSS-5S-d1b">
