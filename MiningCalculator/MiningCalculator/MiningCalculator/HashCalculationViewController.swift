@@ -12,6 +12,7 @@ class HashCalculationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hashrateTextField.becomeFirstResponder()
         setColors()
     }
     
