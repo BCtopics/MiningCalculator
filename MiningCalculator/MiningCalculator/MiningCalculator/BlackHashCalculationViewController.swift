@@ -1,30 +1,94 @@
 //
-//  HashCalculationViewController.swift
+//  BlackHashCalculationViewController.swift
 //  MiningCalculator
 //
-//  Created by Bradley GIlmore on 6/26/17.
+//  Created by Bradley GIlmore on 6/27/17.
 //  Copyright © 2017 Bradley Gilmore. All rights reserved.
 //
 
 import UIKit
 
-//class HashCalculationViewController: UIViewController, UITextFieldDelegate {
+//class BlackHashCalculationViewController: UIViewController {
 //    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
-//        self.hashrateTextField.becomeFirstResponder()
-//        self.setUp()
+//        self.initialSetUp()
+//        self.setup()
 //    }
 //    
-//    func setUp() {
+//    // Money Amounts
+//    let usdLabel = UILabel()
+//    let cryptoAmountLabel = UILabel()
+//    
+//    
+//    // Search Bar
+//    let hashrateSearchField = UISearchBar()
+//    let mhButton = UIButton()
+//    
+//    // Icon Button
+//    let btcIcon = UIButton()
+//    
+//    // Hour, Day, Week, Month, Year stackview
+//    
+//    func initialSetUp() {
+//        
+//        // usdLabel Setup
+//        self.usdLabel.text = "$4,200"
+//        self.usdLabel.font = UIFont.systemFont(ofSize: 32.0, weight: UIFontWeightMedium)
+//        self.view.addSubview(usdLabel)
+//        
+//        // cryptoAmountlabel Setup
+//        
+//        self.cryptoAmountLabel.text = "BTC: 6.24699"
+//        self.cryptoAmountLabel.font = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightRegular)
+//        self.view.addSubview(cryptoAmountLabel)
+//        
+//    }
+//    
+//    func setup() {
+//        self.setupConstraints()
 //        self.setColors()
 //    }
 //    
+//    func setupConstraints() {
+//        
+//        // usdLabel Constraints
+//        usdLabel.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        let usdLabelTop = NSLayoutConstraint(item: usdLabel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 20)
+//        let usdLabelTrailing = NSLayoutConstraint(item: usdLabel, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 30)
+//        let usdLabelLeading = NSLayoutConstraint(item: usdLabel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 30)
+//        let usdLabelBottom = NSLayoutConstraint(item: usdLabel, attribute: .bottom, relatedBy: .equal, toItem: cryptoAmountLabel, attribute: .top, multiplier: 1.0, constant: 10)
+//    
+//        self.view.addConstraints([usdLabelTop, usdLabelTrailing, usdLabelLeading, usdLabelBottom])
+//        
+//        // CrptoAmountLabel Constraints
+//        
+//        let cryptoAmountLabelTop = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .top, relatedBy: .equal, toItem: usdLabel, attribute: .bottom, multiplier: 1.0, constant: 10)
+//        let cryptoAmountLabelTrailing = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 30)
+//        let cryptoAmountLabelLeading = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 30)
+//
+//        self.view.addConstraints([cryptoAmountLabelTop, cryptoAmountLabelLeading, cryptoAmountLabelTrailing])
+//        
+//        // Search Bar Constraints
+//        
+//        // Icon Button Constraints
+//        
+//        // Hour, Day, Week, Month, Year stackview Contraints
+//        
+//    }
+//    
 //    func setColors() {
-//        self.mainView.backgroundColor = UIColor(colorLiteralRed: 10 / 256.0, green: 105 / 256.0, blue: 112 / 256.0, alpha: 1)
-//        self.mainView.tintColor = UIColor(colorLiteralRed: 239 / 256.0, green: 173 / 256.0, blue: 78 / 265.0, alpha: 1)
-//        self.currencyAmount.textColor = .white
-//        self.usdAmount.textColor = .white
+//        
+//        // Main View
+//        self.view.backgroundColor = ColorController.backgroundBlack
+//        self.navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navBar"), for: .default)
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+//        
+//        // Money Amounts
+//        self.usdLabel.textColor = .white
+//        self.cryptoAmountLabel.textColor = .white
+//        
 //    }
 //    
 //    //MARK: - UITextFieldDelegate Functions
@@ -124,8 +188,7 @@ import UIKit
 //    @IBOutlet weak var hashrateTextField: UITextField!
 //    @IBOutlet weak var usdAmount: UILabel!
 //    @IBOutlet weak var currencyAmount: UILabel!
-//    @IBOutlet weak var mhButton: UIButton!
-//    @IBOutlet var mainView: UIView!
+////    @IBOutlet weak var mhButton: UIButton!
 //    
 //    //MARK: - IBActions
 //    
@@ -201,3 +264,7 @@ import UIKit
 //        return (self * divisor).rounded() / divisor
 //    }
 //}
+
+
+
+

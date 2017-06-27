@@ -15,6 +15,9 @@
 		6B582C921F019A4900AD53DD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B582C911F019A4900AD53DD /* Coin.swift */; };
 		6B582C941F019ECE00AD53DD /* HashCalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B582C931F019ECE00AD53DD /* HashCalculationViewController.swift */; };
 		6B582C961F019EF100AD53DD /* CoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B582C951F019EF100AD53DD /* CoinController.swift */; };
+		6B9D1F531F02D0DB000D4C2C /* BlackHashCalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D1F521F02D0DB000D4C2C /* BlackHashCalculationViewController.swift */; };
+		6BB8C8671F02D7AD00745DF9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB8C8661F02D7AD00745DF9 /* Colors.swift */; };
+		6BB8C8691F02F7BF00745DF9 /* GreenHashCalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB8C8681F02F7BF00745DF9 /* GreenHashCalculationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		6B582C911F019A4900AD53DD /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		6B582C931F019ECE00AD53DD /* HashCalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashCalculationViewController.swift; sourceTree = "<group>"; };
 		6B582C951F019EF100AD53DD /* CoinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinController.swift; sourceTree = "<group>"; };
+		6B9D1F521F02D0DB000D4C2C /* BlackHashCalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackHashCalculationViewController.swift; sourceTree = "<group>"; };
+		6BB8C8661F02D7AD00745DF9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		6BB8C8681F02F7BF00745DF9 /* GreenHashCalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenHashCalculationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				6B3AE6F01F0188BC0055644E /* AppDelegate.swift */,
+				6BB8C8651F02D7A300745DF9 /* Colors */,
 				6B582C901F019A0200AD53DD /* ModelControllers */,
 				6B582C8F1F0199FD00AD53DD /* Models */,
 				6B582C8E1F0199F700AD53DD /* ViewControllers */,
@@ -101,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				6B582C931F019ECE00AD53DD /* HashCalculationViewController.swift */,
+				6B9D1F521F02D0DB000D4C2C /* BlackHashCalculationViewController.swift */,
+				6BB8C8681F02F7BF00745DF9 /* GreenHashCalculationViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -119,6 +128,14 @@
 				6B582C951F019EF100AD53DD /* CoinController.swift */,
 			);
 			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		6BB8C8651F02D7A300745DF9 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				6BB8C8661F02D7AD00745DF9 /* Colors.swift */,
+			);
+			name = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +213,11 @@
 			files = (
 				6B582C941F019ECE00AD53DD /* HashCalculationViewController.swift in Sources */,
 				6B582C961F019EF100AD53DD /* CoinController.swift in Sources */,
+				6B9D1F531F02D0DB000D4C2C /* BlackHashCalculationViewController.swift in Sources */,
+				6BB8C8671F02D7AD00745DF9 /* Colors.swift in Sources */,
 				6B582C921F019A4900AD53DD /* Coin.swift in Sources */,
 				6B582C8D1F0199B800AD53DD /* NetworkController.swift in Sources */,
+				6BB8C8691F02F7BF00745DF9 /* GreenHashCalculationViewController.swift in Sources */,
 				6B3AE6F11F0188BC0055644E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
