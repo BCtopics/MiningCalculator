@@ -17,6 +17,7 @@ class GreenHashCalculationViewController: UIViewController {
     }
     
     let moneyView = UIView()
+    let hashView = UIView()
     
     // Money Amounts
     let usdLabel = UILabel()
@@ -32,19 +33,31 @@ class GreenHashCalculationViewController: UIViewController {
     
     // Hour, Day, Week, Month, Year stackview
     
+    func HashViewSetup() {
+        
+        
+        HashViewConstraints()
+    }
+    
+    func HashViewConstraints() {
+        
+    }
+    
     func MoneyViewSetup() {
         
         // usdLabel Setup
         self.usdLabel.text = "$4,200"
-        self.usdLabel.font = UIFont.systemFont(ofSize: 32.0, weight: UIFontWeightMedium)
-        self.usdLabel.textColor = ColorController.textOrange
+        self.usdLabel.font = UIFont.systemFont(ofSize: 45.0, weight: UIFontWeightMedium)
+        self.usdLabel.textColor = .white
+        self.usdLabel.textAlignment = .center
         self.moneyView.addSubview(usdLabel)
         
         // cryptoAmountlabel Setup
         
         self.cryptoAmountLabel.text = "BTC: 6.24699"
-        self.cryptoAmountLabel.font = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightRegular)
-        self.cryptoAmountLabel.textColor = ColorController.textOrange
+        self.cryptoAmountLabel.font = UIFont.systemFont(ofSize: 30.0, weight: UIFontWeightRegular)
+        self.cryptoAmountLabel.textColor = .white
+        self.cryptoAmountLabel.textAlignment = .center
         self.moneyView.addSubview(cryptoAmountLabel)
         
         // Hour, Day, Week, Month, Year stackview Setup
@@ -59,19 +72,19 @@ class GreenHashCalculationViewController: UIViewController {
         usdLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let usdLabelTop = NSLayoutConstraint(item: usdLabel, attribute: .top, relatedBy: .equal, toItem: moneyView, attribute: .top, multiplier: 1.0, constant: 20)
-        let usdLabelTrailing = NSLayoutConstraint(item: usdLabel, attribute: .trailing, relatedBy: .equal, toItem: moneyView, attribute: .trailing, multiplier: 1.0, constant: 30)
+        let usdLabelTrailing = NSLayoutConstraint(item: usdLabel, attribute: .trailing, relatedBy: .equal, toItem: moneyView, attribute: .trailing, multiplier: 1.0, constant: -30)
         let usdLabelLeading = NSLayoutConstraint(item: usdLabel, attribute: .leading, relatedBy: .equal, toItem: moneyView, attribute: .leading, multiplier: 1.0, constant: 30)
-        let usdLabelBottom = NSLayoutConstraint(item: usdLabel, attribute: .bottom, relatedBy: .equal, toItem: cryptoAmountLabel, attribute: .top, multiplier: 1.0, constant: 10)
+        let usdLabelBottom = NSLayoutConstraint(item: usdLabel, attribute: .bottom, relatedBy: .equal, toItem: cryptoAmountLabel, attribute: .top, multiplier: 1.0, constant: -10)
         
         self.moneyView.addConstraints([usdLabelTop, usdLabelTrailing, usdLabelLeading, usdLabelBottom])
         
         // CrptoAmountLabel Constraints
-        
-        let cryptoAmountLabelTop = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .top, relatedBy: .equal, toItem: usdLabel, attribute: .bottom, multiplier: 1.0, constant: 10)
-        let cryptoAmountLabelTrailing = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .trailing, relatedBy: .equal, toItem: moneyView, attribute: .trailing, multiplier: 1.0, constant: 30)
+        cryptoAmountLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        let cryptoAmountLabelTrailing = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .trailing, relatedBy: .equal, toItem: moneyView, attribute: .trailing, multiplier: 1.0, constant: -30)
         let cryptoAmountLabelLeading = NSLayoutConstraint(item: cryptoAmountLabel, attribute: .leading, relatedBy: .equal, toItem: moneyView, attribute: .leading, multiplier: 1.0, constant: 30)
         
-        self.moneyView.addConstraints([cryptoAmountLabelTop, cryptoAmountLabelLeading, cryptoAmountLabelTrailing])
+        self.moneyView.addConstraints([cryptoAmountLabelLeading, cryptoAmountLabelTrailing])
 
     }
     
@@ -82,14 +95,27 @@ class GreenHashCalculationViewController: UIViewController {
     
     func setupConstraints() {
         
+        // Money View
+        self.view.addSubview(moneyView)
         moneyView.translatesAutoresizingMaskIntoConstraints = false
         
         let moneyViewTop = NSLayoutConstraint(item: moneyView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0)
         let moneyViewLeading = NSLayoutConstraint(item: moneyView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0)
         let moneyViewTrailing = NSLayoutConstraint(item: moneyView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 0)
-        let moneyViewHeight = NSLayoutConstraint(item: moneyView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 0.5, constant: 0)
+        let moneyViewHeight = NSLayoutConstraint(item: moneyView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 0.28, constant: 0)
         
         self.view.addConstraints([moneyViewTop, moneyViewLeading, moneyViewTrailing, moneyViewHeight])
+        
+        // Hash View
+        self.view.addSubview(hashView)
+        hashView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let hashViewTop = NSLayoutConstraint(item: hashView, attribute: .top, relatedBy: .equal, toItem: moneyView, attribute: .bottom, multiplier: 1.0, constant: 0)
+        let hashViewLeading = NSLayoutConstraint(item: hashView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0)
+        let hashViewTrailing = NSLayoutConstraint(item: hashView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 0)
+        let hashViewHeight = NSLayoutConstraint(item: hashView, attribute: .height, relatedBy: .equal, toItem: moneyView, attribute: .height, multiplier: 1.3, constant: 0)
+        
+        self.view.addConstraints([hashViewTop, hashViewLeading, hashViewTrailing, hashViewHeight])
         
         
         // Search Bar Constraints
@@ -102,12 +128,14 @@ class GreenHashCalculationViewController: UIViewController {
     
     func setColors() {
         
-        // Main View
+        // Money View
         self.moneyView.backgroundColor = ColorController.backgroundGreen
-        self.view.addSubview(moneyView)
         self.navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "navGreen"), for: .default)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
+        
+        // Hash View
+        self.hashView.backgroundColor = ColorController.tintGreen
         
     }
     
