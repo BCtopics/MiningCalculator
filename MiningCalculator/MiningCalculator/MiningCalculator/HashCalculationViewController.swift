@@ -18,11 +18,21 @@ class HashCalculationViewController: UIViewController {
     
     func performCalculation(timeFrame: String) {
         
-        // Check which dropdown box was selected... MH/HG/TH
-        // Perform conversion to Hashes
-        
         guard let hashes = hashrateTextField.text else { NSLog("Hashes text field was nil"); return }
-        CoinController.fetchCoin(for: hashes) { (coin) in
+        
+        var input = hashes
+        
+        if self.hashType == "megahashes" {
+            input = hashes + "000000"
+        }
+        if self.hashType == "gigahash" {
+            input = hashes + "000000000"
+        }
+        if self.hashType == "terahash" {
+            input = hashes + "000000000000"
+        }
+        
+        CoinController.fetchCoin(for: input) { (coin) in
             guard let coin = coin else { NSLog("Coin was nil"); return }
             
             // Hour timeFrame
@@ -95,7 +105,7 @@ class HashCalculationViewController: UIViewController {
     @IBAction func calculateButtonTapped(_ sender: Any) {
         self.performCalculation(timeFrame: time)
     }
-
+    
     @IBAction func dayButtonTapped(_ sender: Any) {
         self.time = "day"
         self.performCalculation(timeFrame: time)
@@ -116,9 +126,37 @@ class HashCalculationViewController: UIViewController {
         self.performCalculation(timeFrame: time)
     }
     
-    //MARK: - Properties 
+    @IBAction func MHButtonTapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "hashes, MH's, GH's, or TH's?", message: nil, preferredStyle: .alert)
+        
+        let hashesAction = UIAlertAction(title: "Hashes", style: .default) { (_) in
+            self.hashType = "hashes"
+        }
+        let megahashesAction = UIAlertAction(title: "MH", style: .default) { (_) in
+            self.hashType = "megahashes"
+        }
+        let gigahashesAction = UIAlertAction(title: "GH", style: .default) { (_) in
+            self.hashType = "gigahash"
+        }
+        let terahashesAction = UIAlertAction(title: "TH", style: .default) { (_) in
+            self.hashType = "terahash"
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(hashesAction)
+        alert.addAction(megahashesAction)
+        alert.addAction(gigahashesAction)
+        alert.addAction(terahashesAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: - Properties
     
     var time: String = "day"
+    var hashType: String = "hashes"
     
 }
 

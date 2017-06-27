@@ -49,6 +49,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-6S-2vL">
                                 <rect key="frame" x="329" y="239" width="30" height="30"/>
                                 <state key="normal" title="MH"/>
+                                <connections>
+                                    <action selector="MHButtonTapped:" destination="YRK-xy-tNK" eventType="touchUpInside" id="7Dg-Vs-XDG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNy-wf-G91">
                                 <rect key="frame" x="155" y="598" width="64" height="30"/>
