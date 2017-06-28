@@ -20,6 +20,6 @@ class ColorController {
     static let textOrange = UIColor(colorLiteralRed: 239 / 250.0, green: 173 / 250.0, blue: 78 / 260.0, alpha: 1)
     static let tintGreen = UIColor(colorLiteralRed: 229 / 255.0, green: 240 / 255.0, blue: 230 / 255.0, alpha: 1)
     static let backgroundGreen = UIColor(colorLiteralRed: 8 / 255.0, green: 89 / 255.0, blue: 95 / 255.0, alpha: 1)
-    
+    static let underLineGray = UIColor.gray.withAlphaComponent(0.35)
     
 }

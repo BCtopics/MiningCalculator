@@ -17,6 +17,11 @@ class GreenHashCalculationViewController: UIViewController {
         self.HashViewSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hashrateSearchField.becomeFirstResponder()
+    }
+    
     // UIViews
     let moneyView = UIView()
     let hashView = UIView()
@@ -35,12 +40,13 @@ class GreenHashCalculationViewController: UIViewController {
         // hashrateSearchField / MHButton Setup
         
         self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
-        self.hashrateSearchField.textAlignment = .center
+        self.hashrateSearchField.textAlignment = .left
         self.hashrateSearchField.setContentHuggingPriority(249, for: UILayoutConstraintAxis.horizontal)
         self.hashrateSearchField.keyboardType = .decimalPad
         self.hashrateSearchField.textColor = ColorController.textOrange
         self.hashrateSearchField.becomeFirstResponder()
         self.hashrateSearchField.setBottomBorder()
+        self.hashrateSearchField.tintColor = ColorController.textOrange
         
         
         self.mhButton.setTitle("MH's", for: .normal)
@@ -352,20 +358,24 @@ class GreenHashCalculationViewController: UIViewController {
         
         let hashesAction = UIAlertAction(title: "Hashes", style: .default) { (_) in
             self.hashType = "hashes"
-            self.mhButton.titleLabel?.text = "H"
+            self.mhButton.titleLabel?.text = "H's"
+            self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
         let megahashesAction = UIAlertAction(title: "MH", style: .default) { (_) in
             self.hashType = "megahashes"
-            self.mhButton.titleLabel?.text = "MH"
+            self.mhButton.titleLabel?.text = "MH's"
+            self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
         let gigahashesAction = UIAlertAction(title: "GH", style: .default) { (_) in
             self.hashType = "gigahash"
-            self.mhButton.titleLabel?.text = "GH"
+            self.mhButton.titleLabel?.text = "GH's"
+            self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
             
         }
         let terahashesAction = UIAlertAction(title: "TH", style: .default) { (_) in
             self.hashType = "terahash"
-            self.mhButton.titleLabel?.text = "TH"
+            self.mhButton.titleLabel?.text = "TH's"
+            self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -400,7 +410,7 @@ extension UITextField {
         self.layer.backgroundColor = ColorController.tintGreen.cgColor
         
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowColor = ColorController.underLineGray.cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
