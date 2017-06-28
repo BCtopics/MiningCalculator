@@ -98,6 +98,7 @@ class GreenHashCalculationViewController: UIViewController {
     func hashTargets() {
         mhButton.addTarget(self, action: #selector(MHButtonTapped(_:)), for: .touchUpInside)
         btcIcon.addTarget(self, action: #selector(calculateButtonTapped(_:)), for: .touchUpInside)
+        btcIcon.addTarget(self, action: #selector(coinSpin(_:)), for: .touchUpInside)
     }
     
     //MARK: - Money View
@@ -199,6 +200,11 @@ class GreenHashCalculationViewController: UIViewController {
         dayButton.addTarget(self, action: #selector(dayButtonTapped(_:)), for: .touchUpInside)
         weekButton.addTarget(self, action: #selector(weekButtonTapped(_:)), for: .touchUpInside)
         monthButton.addTarget(self, action: #selector(monthButtonTapped(_:)), for: .touchUpInside)
+        
+        hourButton.addTarget(self, action: #selector(buttonShake(_:)), for: .touchUpInside)
+        dayButton.addTarget(self, action: #selector(buttonShake(_:)), for: .touchUpInside)
+        weekButton.addTarget(self, action: #selector(buttonShake(_:)), for: .touchUpInside)
+        monthButton.addTarget(self, action: #selector(buttonShake(_:)), for: .touchUpInside)
     }
     
     //MARK: - Default Setup
@@ -323,6 +329,39 @@ class GreenHashCalculationViewController: UIViewController {
                 NSLog("month Calculated")
             }
         }
+    }
+    
+    //MARK: - Animations
+    
+    func buttonShake(_ sender: UIButton) {
+        
+        view.bringSubview(toFront: sender)
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [
+            sender.frame.origin.x + sender.frame.width / 2,
+            sender.frame.origin.x + sender.frame.width / 2 - 15,
+            sender.frame.origin.x + sender.frame.width / 2,
+            sender.frame.origin.x + sender.frame.width / 2 + 15,
+            sender.frame.origin.x + sender.frame.width / 2
+        ]
+        animation.keyTimes = [0, 0.25, 0.5, 0.75, 1]
+        animation.duration = 0.5
+        animation.repeatCount = 1
+        sender.layer.add(animation, forKey: "shake")
+    }
+
+    func coinSpin(_ sender: UIButton) {
+    
+        UIView.animate(withDuration: 0.5) { () -> Void in
+            
+            self.btcIcon.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0.45, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            
+            self.btcIcon.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 2.0)
+        }, completion: nil)
     }
     
     //MARK: - IBActions
