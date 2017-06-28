@@ -364,6 +364,25 @@ class GreenHashCalculationViewController: UIViewController {
         }, completion: nil)
     }
     
+    func bounce() {
+    
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
+            self.mhButton.center.y = self.view.frame.height / 4
+        }), completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, options: [], animations: ({
+            self.mhButton.center.y = self.view.frame.height / 6
+        }), completion: nil)
+        UIView.animate(withDuration: 0.9, delay: 0.4, usingSpringWithDamping: 1, initialSpringVelocity: 0.6, options: [], animations: ({
+            self.mhButton.center.y = self.view.frame.height / 4
+        }), completion: nil)
+        UIView.animate(withDuration: 1, delay: 0.6, usingSpringWithDamping: 1, initialSpringVelocity: 0.4, options: [], animations: ({
+            self.mhButton.center.y = self.view.frame.height / 5.5
+        }), completion: nil)
+        UIView.animate(withDuration: 1.05, delay: 0.8, usingSpringWithDamping: 1, initialSpringVelocity: 0.2, options: [], animations: ({
+            self.mhButton.center.y = self.view.frame.height / 4
+        }), completion: nil)
+    }
+    
     //MARK: - IBActions
     
     func calculateButtonTapped(_ sender: Any) {
@@ -429,7 +448,11 @@ class GreenHashCalculationViewController: UIViewController {
     //MARK: - Properties
     
     var time: String = "day"
-    var hashType: String = "terahashes"
+    var hashType: String = "terahashes" {
+        didSet {
+            bounce()
+        }
+    }
 }
 
 //MARK: - Rounding
