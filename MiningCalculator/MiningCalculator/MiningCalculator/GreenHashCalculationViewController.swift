@@ -21,7 +21,6 @@ class GreenHashCalculationViewController: UIViewController {
     let moneyView = UIView()
     let hashView = UIView()
     
-    
     //MARK: - Hash View
     
     // Search Bar
@@ -33,7 +32,6 @@ class GreenHashCalculationViewController: UIViewController {
     
     func HashViewSetup() {
         
-        
         // hashrateSearchField / MHButton Setup
         
         self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
@@ -42,6 +40,8 @@ class GreenHashCalculationViewController: UIViewController {
         self.hashrateSearchField.keyboardType = .decimalPad
         self.hashrateSearchField.textColor = ColorController.textOrange
         self.hashrateSearchField.becomeFirstResponder()
+        self.hashrateSearchField.setBottomBorder()
+        
         
         self.mhButton.setTitle("MH's", for: .normal)
         self.mhButton.setTitleColor(ColorController.textOrange, for: .normal)
@@ -87,6 +87,12 @@ class GreenHashCalculationViewController: UIViewController {
         
         self.hashView.addConstraints([btcIconLeading, btcIconTrailing, btcIconAspectRatio, btcIconBottom])
         
+        hashTargets()
+    }
+    
+    func hashTargets() {
+        mhButton.addTarget(self, action: #selector(MHButtonTapped(_:)), for: .touchUpInside)
+        btcIcon.addTarget(self, action: #selector(calculateButtonTapped(_:)), for: .touchUpInside)
     }
     
     //MARK: - Money View
@@ -179,8 +185,18 @@ class GreenHashCalculationViewController: UIViewController {
         let timeStackViewLeading = NSLayoutConstraint(item: timeStackView, attribute: .leading, relatedBy: .equal, toItem: moneyView, attribute: .leading, multiplier: 1.0, constant: 30)
         
         self.moneyView.addConstraints([timeStackViewTop, timeStackViewLeading, timeStackViewTrailing])
-
+        
+        moneyTargets()
     }
+    
+    func moneyTargets() {
+        hourButton.addTarget(self, action: #selector(hourButtonTapped(_:)), for: .touchUpInside)
+        dayButton.addTarget(self, action: #selector(dayButtonTapped(_:)), for: .touchUpInside)
+        weekButton.addTarget(self, action: #selector(weekButtonTapped(_:)), for: .touchUpInside)
+        monthButton.addTarget(self, action: #selector(monthButtonTapped(_:)), for: .touchUpInside)
+    }
+    
+    //MARK: - Default Setup
     
     func setup() {
         self.setColors()
@@ -210,12 +226,6 @@ class GreenHashCalculationViewController: UIViewController {
         let hashViewHeight = NSLayoutConstraint(item: hashView, attribute: .height, relatedBy: .equal, toItem: moneyView, attribute: .height, multiplier: 1.7, constant: 0) // Was 1.3
         
         self.view.addConstraints([hashViewTop, hashViewLeading, hashViewTrailing, hashViewHeight])
-        
-        
-        // Search Bar Constraints
-        
-        // Icon Button Constraints
-        
     }
     
     func setColors() {
@@ -228,26 +238,13 @@ class GreenHashCalculationViewController: UIViewController {
         
         // Hash View
         self.hashView.backgroundColor = ColorController.tintGreen
-        
-    }
-    
-    //MARK: - UITextFieldDelegate Functions
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-        performCalculation(timeFrame: self.time)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
     }
     
     //MARK: - Calculations
     
     func performCalculation(timeFrame: String) {
         
-        guard let hashes = hashrateTextField.text else { NSLog("Hashes text field was nil"); return }
+        guard let hashes = hashrateSearchField.text else { NSLog("Hashes text field was nil"); return }
         
         var input = hashes
         
@@ -272,8 +269,8 @@ class GreenHashCalculationViewController: UIViewController {
                 let coinsPerHourRounded = coin.coinsPerHour.roundTo(places: 10)
                 
                 DispatchQueue.main.async {
-                    self.usdAmount.text = "$\(dollarsPerHourRounded)"
-                    self.currencyAmount.text = "BTC: \(coinsPerHourRounded)"
+                    self.usdLabel.text = "$\(dollarsPerHourRounded)"
+                    self.cryptoAmountLabel.text = "BTC: \(coinsPerHourRounded)"
                 }
                 NSLog("Hour Calculated")
             }
@@ -286,8 +283,8 @@ class GreenHashCalculationViewController: UIViewController {
                 let coinsPerDayRounded = coin.coinsPerDay.roundTo(places: 10)
                 
                 DispatchQueue.main.async {
-                    self.usdAmount.text = "$\(dollarsPerDayRounded)"
-                    self.currencyAmount.text = "BTC: \(coinsPerDayRounded)"
+                    self.usdLabel.text = "$\(dollarsPerDayRounded)"
+                    self.cryptoAmountLabel.text = "BTC: \(coinsPerDayRounded)"
                 }
                 NSLog("Day Calculated")
             }
@@ -300,8 +297,8 @@ class GreenHashCalculationViewController: UIViewController {
                 let coinsPerWeekRounded = coin.coinsPerWeek.roundTo(places: 10)
                 
                 DispatchQueue.main.async {
-                    self.usdAmount.text = "$\(dollarsPerWeekRounded)"
-                    self.currencyAmount.text = "BTC: \(coinsPerWeekRounded)"
+                    self.usdLabel.text = "$\(dollarsPerWeekRounded)"
+                    self.cryptoAmountLabel.text = "BTC: \(coinsPerWeekRounded)"
                 }
                 NSLog("week Calculated")
             }
@@ -315,48 +312,41 @@ class GreenHashCalculationViewController: UIViewController {
                 let coinsPerMonthRounded = coin.coinsPerMonth.roundTo(places: 10)
                 
                 DispatchQueue.main.async {
-                    self.usdAmount.text = "$\(dollarsPerMonthRounded)"
-                    self.currencyAmount.text = "BTC: \(coinsPerMonthRounded)"
+                    self.usdLabel.text = "$\(dollarsPerMonthRounded)"
+                    self.cryptoAmountLabel.text = "BTC: \(coinsPerMonthRounded)"
                 }
                 NSLog("month Calculated")
             }
         }
     }
     
-    //MARK: - IBOutlets
-    
-    @IBOutlet weak var hashrateTextField: UITextField!
-    @IBOutlet weak var usdAmount: UILabel!
-    @IBOutlet weak var currencyAmount: UILabel!
-    //    @IBOutlet weak var mhButton: UIButton!
-    
     //MARK: - IBActions
     
-    @IBAction func calculateButtonTapped(_ sender: Any) {
+    func calculateButtonTapped(_ sender: Any) {
         self.performCalculation(timeFrame: time)
     }
     
-    @IBAction func dayButtonTapped(_ sender: Any) {
+    func dayButtonTapped(_ sender: Any) {
         self.time = "day"
         self.performCalculation(timeFrame: time)
     }
     
-    @IBAction func hourButtonTapped(_ sender: Any) {
+    func hourButtonTapped(_ sender: Any) {
         self.time = "hour"
         self.performCalculation(timeFrame: time)
     }
     
-    @IBAction func weekButtonTapped(_ sender: Any) {
+    func weekButtonTapped(_ sender: Any) {
         self.time = "week"
         self.performCalculation(timeFrame: time)
     }
     
-    @IBAction func monthButtonTapped(_ sender: Any) {
+    func monthButtonTapped(_ sender: Any) {
         self.time = "month"
         self.performCalculation(timeFrame: time)
     }
     
-    @IBAction func MHButtonTapped(_ sender: Any) {
+    func MHButtonTapped(_ sender: Any) {
         
         let alert = UIAlertController(title: "hashes, MH's, GH's, or TH's?", message: nil, preferredStyle: .alert)
         
@@ -404,4 +394,16 @@ extension Double {
     }
 }
 
+extension UITextField {
+    func setBottomBorder() {
+        self.borderStyle = .none
+        self.layer.backgroundColor = ColorController.tintGreen.cgColor
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+    }
+}
 
