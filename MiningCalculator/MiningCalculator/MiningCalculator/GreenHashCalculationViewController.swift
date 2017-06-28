@@ -48,8 +48,7 @@ class GreenHashCalculationViewController: UIViewController {
         self.hashrateSearchField.setBottomBorder()
         self.hashrateSearchField.tintColor = ColorController.textOrange
         
-        
-        self.mhButton.setTitle("MH's", for: .normal)
+        self.mhButton.setTitle("TH's", for: .normal)
         self.mhButton.setTitleColor(ColorController.textOrange, for: .normal)
         
         self.hashView.addSubview(hashrateSearchField)
@@ -89,7 +88,7 @@ class GreenHashCalculationViewController: UIViewController {
         let btcIconAspectRatio = NSLayoutConstraint(item: btcIcon, attribute: .height, relatedBy: .equal, toItem: btcIcon, attribute: .width, multiplier: 1.0, constant: 0)
         let btcIconLeading = NSLayoutConstraint(item: btcIcon, attribute: .leading, relatedBy: .equal, toItem: hashView, attribute: .leading, multiplier: 1.0, constant: 120)
         let btcIconTrailing = NSLayoutConstraint(item: btcIcon, attribute: .trailing, relatedBy: .equal, toItem: hashView, attribute: .trailing, multiplier: 1.0, constant: -120)
-        let btcIconBottom = NSLayoutConstraint(item: btcIcon, attribute: .bottom, relatedBy: .equal, toItem: hashView, attribute: .bottom, multiplier: 1.0, constant: -65) // Change This
+        let btcIconBottom = NSLayoutConstraint(item: btcIcon, attribute: .bottom, relatedBy: .equal, toItem: hashView, attribute: .bottom, multiplier: 1.0, constant: -65)
         
         self.hashView.addConstraints([btcIconLeading, btcIconTrailing, btcIconAspectRatio, btcIconBottom])
         
@@ -358,23 +357,23 @@ class GreenHashCalculationViewController: UIViewController {
         
         let hashesAction = UIAlertAction(title: "Hashes", style: .default) { (_) in
             self.hashType = "hashes"
-            self.mhButton.titleLabel?.text = "H's"
+            self.mhButton.setTitle("H's", for: .normal)
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
         let megahashesAction = UIAlertAction(title: "MH", style: .default) { (_) in
             self.hashType = "megahashes"
-            self.mhButton.titleLabel?.text = "MH's"
+            self.mhButton.setTitle("MH's", for: .normal)
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
         let gigahashesAction = UIAlertAction(title: "GH", style: .default) { (_) in
             self.hashType = "gigahash"
-            self.mhButton.titleLabel?.text = "GH's"
+            self.mhButton.setTitle("GH's", for: .normal)
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
             
         }
         let terahashesAction = UIAlertAction(title: "TH", style: .default) { (_) in
             self.hashType = "terahash"
-            self.mhButton.titleLabel?.text = "TH's"
+            self.mhButton.setTitle("TH's", for: .normal)
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -391,7 +390,7 @@ class GreenHashCalculationViewController: UIViewController {
     //MARK: - Properties
     
     var time: String = "day"
-    var hashType: String = "hashes"
+    var hashType: String = "terahash"
 }
 
 //MARK: - Rounding
