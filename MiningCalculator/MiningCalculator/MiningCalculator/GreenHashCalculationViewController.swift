@@ -110,10 +110,10 @@ class GreenHashCalculationViewController: UIViewController {
     
     let timeStackView = UIStackView()
     
-    let hourButton = UIButton()
-    let dayButton = UIButton()
-    let weekButton = UIButton()
-    let monthButton = UIButton()
+    let hourButton = UIButton(type: .system)
+    let dayButton = UIButton(type: .system)
+    let weekButton = UIButton(type: .system)
+    let monthButton = UIButton(type: .system)
     
     func MoneyViewSetup() {
         
@@ -256,10 +256,10 @@ class GreenHashCalculationViewController: UIViewController {
         if self.hashType == "megahashes" {
             input = hashes + "000000"
         }
-        if self.hashType == "gigahash" {
+        if self.hashType == "gigahashes" {
             input = hashes + "000000000"
         }
-        if self.hashType == "terahash" {
+        if self.hashType == "terahashes" {
             input = hashes + "000000000000"
         }
         
@@ -353,9 +353,9 @@ class GreenHashCalculationViewController: UIViewController {
     
     func MHButtonTapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "hashes, MH's, GH's, or TH's?", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "H's, MH's, GH's, or TH's?", message: nil, preferredStyle: .alert)
         
-        let hashesAction = UIAlertAction(title: "Hashes", style: .default) { (_) in
+        let hashesAction = UIAlertAction(title: "H", style: .default) { (_) in
             self.hashType = "hashes"
             self.mhButton.setTitle("H's", for: .normal)
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
@@ -366,13 +366,13 @@ class GreenHashCalculationViewController: UIViewController {
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
         let gigahashesAction = UIAlertAction(title: "GH", style: .default) { (_) in
-            self.hashType = "gigahash"
+            self.hashType = "gigahashes"
             self.mhButton.setTitle("GH's", for: .normal)
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
             
         }
         let terahashesAction = UIAlertAction(title: "TH", style: .default) { (_) in
-            self.hashType = "terahash"
+            self.hashType = "terahashes"
             self.mhButton.setTitle("TH's", for: .normal)
             self.hashrateSearchField.placeholder = "Enter Hashrate in \(self.hashType)..."
         }
@@ -390,7 +390,7 @@ class GreenHashCalculationViewController: UIViewController {
     //MARK: - Properties
     
     var time: String = "day"
-    var hashType: String = "terahash"
+    var hashType: String = "terahashes"
 }
 
 //MARK: - Rounding
@@ -415,4 +415,3 @@ extension UITextField {
         self.layer.shadowRadius = 0.0
     }
 }
-
