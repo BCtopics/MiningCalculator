@@ -144,21 +144,25 @@ class GreenHashCalculationViewController: UIViewController {
         self.hourButton.setTitle("Hour", for: .normal)
         self.hourButton.setTitleColor(ColorController.textOrange, for: .normal)
         self.timeStackView.addArrangedSubview(hourButton)
-        
+        self.hourButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+
         // Day
         self.dayButton.setTitle("Day", for: .normal)
         self.dayButton.setTitleColor(ColorController.textOrange, for: .normal)
         self.timeStackView.addArrangedSubview(dayButton)
+        self.dayButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         
         // Week
         self.weekButton.setTitle("Week", for: .normal)
         self.weekButton.setTitleColor(ColorController.textOrange, for: .normal)
         self.timeStackView.addArrangedSubview(weekButton)
+        self.weekButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         
         // Month
         self.monthButton.setTitle("Month", for: .normal)
         self.monthButton.setTitleColor(ColorController.textOrange, for: .normal)
         self.timeStackView.addArrangedSubview(monthButton)
+        self.monthButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         
         MoneyViewConstraints()
     }
@@ -186,7 +190,7 @@ class GreenHashCalculationViewController: UIViewController {
         // StackView
         timeStackView.translatesAutoresizingMaskIntoConstraints = false
     
-        let timeStackViewTop = NSLayoutConstraint(item: timeStackView, attribute: .top, relatedBy: .equal, toItem: cryptoAmountLabel, attribute: .bottom, multiplier: 1.0, constant: 10)
+        let timeStackViewTop = NSLayoutConstraint(item: timeStackView, attribute: .top, relatedBy: .equal, toItem: cryptoAmountLabel, attribute: .bottom, multiplier: 1.0, constant: 18) //FIXME: - Constant was 10
         let timeStackViewTrailing = NSLayoutConstraint(item: timeStackView, attribute: .trailing, relatedBy: .equal, toItem: moneyView, attribute: .trailing, multiplier: 1.0, constant: -30)
         let timeStackViewLeading = NSLayoutConstraint(item: timeStackView, attribute: .leading, relatedBy: .equal, toItem: moneyView, attribute: .leading, multiplier: 1.0, constant: 30)
         
@@ -365,7 +369,7 @@ class GreenHashCalculationViewController: UIViewController {
     }
     
     func bounce() {
-    
+        //FIXME: - Bug when you select the same one twice.
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
             self.mhButton.center.y = self.view.frame.height / 4
         }), completion: nil)
@@ -392,21 +396,37 @@ class GreenHashCalculationViewController: UIViewController {
     func dayButtonTapped(_ sender: Any) {
         self.time = "day"
         self.performCalculation(timeFrame: time)
+        self.dayButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.hourButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.weekButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.monthButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
     }
     
     func hourButtonTapped(_ sender: Any) {
         self.time = "hour"
         self.performCalculation(timeFrame: time)
+        self.hourButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.dayButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.weekButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.monthButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
     }
     
     func weekButtonTapped(_ sender: Any) {
         self.time = "week"
         self.performCalculation(timeFrame: time)
+        self.weekButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.dayButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.hourButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.monthButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
     }
     
     func monthButtonTapped(_ sender: Any) {
         self.time = "month"
         self.performCalculation(timeFrame: time)
+        self.monthButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.dayButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.weekButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.hourButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
     }
     
     func MHButtonTapped(_ sender: Any) {
