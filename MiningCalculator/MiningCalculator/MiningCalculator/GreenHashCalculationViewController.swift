@@ -396,7 +396,7 @@ class GreenHashCalculationViewController: UIViewController {
     func dayButtonTapped(_ sender: Any) {
         self.time = "day"
         self.performCalculation(timeFrame: time)
-        self.dayButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.dayButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         self.hourButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.weekButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.monthButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
@@ -405,7 +405,7 @@ class GreenHashCalculationViewController: UIViewController {
     func hourButtonTapped(_ sender: Any) {
         self.time = "hour"
         self.performCalculation(timeFrame: time)
-        self.hourButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.hourButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         self.dayButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.weekButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.monthButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
@@ -414,7 +414,7 @@ class GreenHashCalculationViewController: UIViewController {
     func weekButtonTapped(_ sender: Any) {
         self.time = "week"
         self.performCalculation(timeFrame: time)
-        self.weekButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.weekButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         self.dayButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.hourButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.monthButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
@@ -423,7 +423,7 @@ class GreenHashCalculationViewController: UIViewController {
     func monthButtonTapped(_ sender: Any) {
         self.time = "month"
         self.performCalculation(timeFrame: time)
-        self.monthButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.monthButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         self.dayButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.weekButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         self.hourButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
