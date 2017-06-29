@@ -456,11 +456,27 @@ class GreenHashCalculationViewController: UIViewController {
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.addAction(hashesAction)
-        alert.addAction(megahashesAction)
-        alert.addAction(gigahashesAction)
-        alert.addAction(terahashesAction)
-        alert.addAction(cancelAction)
+        if hashType == "terahashes" {
+            alert.addAction(hashesAction)
+            alert.addAction(megahashesAction)
+            alert.addAction(gigahashesAction)
+            alert.addAction(cancelAction)
+        } else if hashType == "gigahashes" {
+            alert.addAction(hashesAction)
+            alert.addAction(megahashesAction)
+            alert.addAction(terahashesAction)
+            alert.addAction(cancelAction)
+        } else if hashType == "megahashes" {
+            alert.addAction(hashesAction)
+            alert.addAction(gigahashesAction)
+            alert.addAction(terahashesAction)
+            alert.addAction(cancelAction)
+        } else if hashType == "hashes" {
+            alert.addAction(megahashesAction)
+            alert.addAction(gigahashesAction)
+            alert.addAction(terahashesAction)
+            alert.addAction(cancelAction)
+        }
         
         self.present(alert, animated: true, completion: nil)
     }
